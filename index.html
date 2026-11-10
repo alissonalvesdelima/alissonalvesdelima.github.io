@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alisson Lima | Infraestrutura e Cibersegurança</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#07090D;--panel:#0D1117;--line:#1C2633;--text:#E8EDF2;--mute:#8B97A6;--green:#00FF9C;--cyan:#00D9FF;--purple:#8B5CF6;--head:"Chakra Petch","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{background:var(--bg);scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background-color:var(--bg);background-image:linear-gradient(rgba(0,255,156,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,156,.04) 1px,transparent 1px);background-size:48px 48px;color:var(--text);font:400 15px/1.7 var(--mono)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 1px,transparent 1px 3px)}
+a{color:var(--cyan)}
+a:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{max-width:980px;margin:0 auto;padding:12px 20px;display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center}
+nav strong{font:700 18px var(--head);color:var(--green);margin-right:auto}
+nav a{font:500 15px var(--head);color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--cyan)}
+main,footer{max-width:980px;margin:0 auto;padding:0 20px}
+footer{padding:64px 20px 40px;color:var(--mute);font-size:13px}
+section{padding:80px 0 8px}
+h2{font:700 30px/1.2 var(--head);margin:0 0 24px}
+h2::before{content:"~/";color:var(--green)}
+p{max-width:62ch;margin:0 0 16px}
+#hero{min-height:calc(100vh - 60px);min-height:calc(100svh - 60px);display:flex;flex-direction:column;justify-content:center;padding:40px 0}
+.boot{font-size:13px;color:var(--mute);margin-bottom:28px}
+.boot div{min-height:1.7em}
+.boot .p{color:var(--green)}
+.name{font:700 clamp(2.8rem,11.5vw,7.5rem)/.95 var(--head);letter-spacing:-.01em;margin:0 0 20px;overflow-wrap:anywhere}
+.slogan{font:500 clamp(1.15rem,3vw,1.6rem) var(--head);color:var(--green);margin:0 0 12px}
+.btn{display:inline-block;margin:8px 12px 0 0;padding:10px 20px;border:1px solid var(--green);color:var(--green);text-decoration:none;font:500 15px var(--head)}
+.btn:hover{background:var(--green);color:var(--bg)}
+.btn.alt{border-color:var(--mute);color:var(--text)}
+.btn.alt:hover{background:var(--text);color:var(--bg)}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;opacity:0;pointer-events:none}
+.glitch::before{color:var(--cyan)}
+.glitch::after{color:var(--purple)}
+.glitch.on,.glitch:hover{text-shadow:.03em 0 var(--cyan),-.03em 0 var(--purple)}
+.glitch.on{animation:jit .55s steps(1) 1}
+.glitch.on::before,.glitch:hover::before{opacity:1;animation:g1 .55s steps(2,end) infinite}
+.glitch.on::after,.glitch:hover::after{opacity:1;animation:g2 .55s steps(2,end) infinite .08s}
+@keyframes g1{0%{clip-path:inset(8% 0 72% 0);transform:translate(-.07em,0)}25%{clip-path:inset(58% 0 12% 0);transform:translate(.07em,0)}50%{clip-path:inset(30% 0 42% 0);transform:translate(-.05em,0)}75%{clip-path:inset(82% 0 2% 0);transform:translate(.06em,0)}100%{clip-path:inset(0 0 88% 0);transform:translate(-.03em,0)}}
+@keyframes g2{0%{clip-path:inset(68% 0 6% 0);transform:translate(.07em,0)}25%{clip-path:inset(4% 0 78% 0);transform:translate(-.07em,0)}50%{clip-path:inset(48% 0 30% 0);transform:translate(.05em,0)}75%{clip-path:inset(20% 0 60% 0);transform:translate(-.06em,0)}100%{clip-path:inset(86% 0 0 0);transform:translate(.03em,0)}}
+@keyframes jit{0%,100%{transform:none}20%{transform:translate(.03em,0) skewX(-5deg)}45%{transform:translate(-.04em,0)}70%{transform:translate(.02em,0) skewX(4deg)}}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--cyan);padding:20px;display:flex;flex-direction:column}
+.card.infra{border-left-color:var(--purple)}
+.card.dados{border-left-color:var(--green)}
+.card h3{font:700 19px/1.3 var(--head);margin:0 0 10px}
+.card:hover h3{text-shadow:.07em 0 var(--cyan),-.07em 0 var(--purple)}
+.card p{font-size:14px;margin:0 0 12px}
+.card .meta{color:var(--mute);margin-top:auto}
+.card a{font:500 14px var(--head)}
+.grp{grid-column:1/-1;font:500 16px var(--head);color:var(--mute);margin:20px 0 0}
+.grp:first-child{margin:0}
+.stack{display:grid;gap:22px}
+.stack h3{font:500 16px var(--head);margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.stack h3::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+.stack ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.stack li{border:1px solid var(--c);padding:3px 12px;font-size:14px}
+.tl{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.tl li{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:0 0 28px 20px;position:relative}
+.tl li::before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;background:var(--green)}
+.tl time{color:var(--green);font-weight:500}
+.tl b{font:700 18px var(--head);display:block}
+.links{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:8px;overflow-wrap:anywhere}
+.links span{color:var(--mute);display:inline-block;width:90px}
+@media(max-width:560px){.tl li{grid-template-columns:1fr;gap:2px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.glitch::before,.glitch::after{display:none}}
+.sub{color:var(--mute);margin:0 0 14px}
+p strong{color:var(--green);font-weight:500}
+.wide{grid-column:1/-1}
+.tags{list-style:none;margin:auto 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{border:1px solid var(--line);color:var(--mute);padding:1px 9px;font-size:12px}
+.stack .plain{display:grid;gap:6px;max-width:68ch}
+.stack .plain li{border:0;padding:0 0 0 18px;position:relative;font-size:15px}
+.stack .plain li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;background:var(--c)}
+.stack .plain strong{font-weight:500;color:var(--text)}
+</style>
+</head>
+<body>
+<header><nav>
+<strong>alisson.lima</strong>
+<a href="#sobre">sobre</a><a href="#projetos">projetos</a><a href="#competencias">competências</a><a href="#trajetoria">trajetória</a><a href="#contato">contato</a>
+</nav></header>
+<main>
+<section id="hero">
+<div class="boot">
+<div class="p">$ whoami</div>
+<div>alisson.lima</div>
+<div class="p">$ cat profile.conf</div>
+<div>role="IT Support | Cybersecurity Student"</div>
+<div>career_stage="IT Intern"</div>
+<div>current_focus="Digital Forensics &amp; Incident Response"</div>
+<div>professional_area="ERP/PDV Production Support"</div>
+<div>status="building practical security projects"</div>
+</div>
+<h1 class="name"><span class="glitch" data-text="ALISSON LIMA">ALISSON LIMA</span></h1>
+<p class="slogan">Build. Monitor. Protect.</p>
+<p class="sub">Estudante de Defesa Cibernética | Suporte e Infraestrutura de TI | Segurança da Informação</p>
+<p>Atuo com suporte técnico e sustentação de sistemas ERP e PDV em ambiente de produção. Estou direcionando minha formação para segurança da informação, com interesse especial em <strong>forense digital, resposta a incidentes e operações de segurança</strong>.</p>
+<div><a class="btn" href="#projetos">Ver projetos</a><a class="btn alt" href="#contato">Entrar em contato</a></div>
+</section>
+
+<section id="sobre">
+<h2><span class="glitch" data-text="sobre">sobre</span></h2>
+<p>Sou Alisson Alves de Lima, de São Paulo (SP), estudante de <strong>Defesa Cibernética na Faculdade Impacta</strong>, com conclusão prevista para dezembro de 2028.</p>
+<p>Minha experiência profissional é em suporte e sustentação de sistemas ERP e PDV, em uma operação com mais de 200 clientes. Atuo no diagnóstico e tratamento de incidentes em produção, análise de problemas de integração, atendimento remoto e presencial, apoio a implantações e documentação de procedimentos. Essa rotina me desenvolveu em troubleshooting, priorização de chamados, comunicação com usuários e resolução de problemas sob pressão.</p>
+<p>Meu próximo passo é migrar para segurança da informação. Tenho explorado diferentes frentes por meio de laboratórios e estudos práticos; atualmente, <strong>forense digital e resposta a incidentes</strong> são meus principais interesses. Busco oportunidades de estágio ou nível inicial em Segurança da Informação, SOC, NOC ou infraestrutura, nas quais eu possa aplicar minha experiência de TI e aprofundar competências em segurança.</p>
+</section>
+
+<section id="projetos">
+<h2><span class="glitch" data-text="projetos">projetos</span></h2>
+<div class="cards">
+<h3 class="grp">públicos</h3>
+<article class="card dados wide"><h3>Estudo de caso: análise de incidente de malware</h3>
+<p>Documentação técnica, em português e inglês, de uma investigação de incidente em ambiente Windows. O estudo organiza a cronologia, as detecções do Microsoft Defender, o inventário de evidências, a análise técnica dos arquivos, a revisão de possíveis mecanismos de persistência, as ações de recuperação e as lições aprendidas.</p>
+<p>A documentação diferencia <strong>fatos observados, hipóteses e conclusões</strong>, além de registrar limitações e pontos que não puderam ser confirmados. O objetivo é demonstrar método de investigação, organização de evidências e comunicação técnica, sem afirmar conclusões que os artefatos não sustentam.</p>
+<ul class="tags"><li>Windows</li><li>Microsoft Defender</li><li>PowerShell</li><li>Análise de evidências</li><li>Documentação técnica</li></ul>
+<a href="https://github.com/alissonalvesdelima?tab=repositories" target="_blank" rel="noopener">Consultar repositórios públicos</a></article>
+<h3 class="grp">em andamento</h3>
+<article class="card"><h3>Laboratórios de segurança web</h3>
+<p>Prática em ambientes de treinamento autorizados, com foco inicial em <strong>SQL Injection</strong>. O objetivo é compreender o comportamento das aplicações, testar hipóteses de forma controlada e documentar contexto, evidências, impacto e formas de mitigação.</p>
+<ul class="tags"><li>PortSwigger Web Security Academy</li><li>Web Security</li><li>SQL Injection</li></ul>
+<a href="https://portswigger.net/web-security" target="_blank" rel="noopener">Conhecer a plataforma de treinamento</a></article>
+<h3 class="grp">planejados</h3>
+<article class="card infra"><h3>Laboratório de monitoramento de infraestrutura e segurança</h3>
+<p>Montagem de um ambiente de laboratório para praticar monitoramento, centralização e análise de eventos. A proposta é documentar a arquitetura, as fontes de log, os alertas configurados, os eventos investigados e os resultados obtidos, aproximando a prática de atividades de NOC e SOC.</p>
+<ul class="tags"><li>Wazuh</li><li>Zabbix</li><li>Grafana</li></ul></article>
+</div>
+</section>
+
+<section id="competencias">
+<h2><span class="glitch" data-text="competências">competências</span></h2>
+<div class="stack">
+<div style="--c:var(--green)"><h3>Experiência profissional</h3><ul class="plain"><li>Suporte técnico e sustentação de sistemas ERP e PDV.</li><li>Diagnóstico e resolução de incidentes em ambiente de produção.</li><li>Análise inicial de falhas de integração e comunicação entre sistemas.</li><li>Atendimento e orientação de usuários, remotamente e presencialmente.</li><li>Registro de ocorrências e documentação de procedimentos.</li></ul></div>
+<div style="--c:var(--cyan)"><h3>Ferramentas e tecnologias em prática</h3><ul class="plain"><li><strong>Sistemas:</strong> Windows e Linux (ambiente de estudos).</li><li><strong>Segurança:</strong> Microsoft Defender e fundamentos de análise de incidentes.</li><li><strong>Linha de comando:</strong> PowerShell (uso em investigação e diagnóstico).</li><li><strong>Desenvolvimento e versionamento:</strong> Python, Git e GitHub.</li></ul></div>
+<div style="--c:var(--purple)"><h3>Em desenvolvimento</h3><ul><li>Redes de computadores e fundamentos de TCP/IP</li><li>Fundamentos de Segurança da Informação e operações SOC</li><li>Forense digital e resposta a incidentes</li><li>Azure e conceitos de computação em nuvem</li><li>SQL básico</li><li>Monitoramento com Wazuh, Zabbix e Grafana</li></ul></div>
+</div>
+</section>
+
+<section id="trajetoria">
+<h2><span class="glitch" data-text="trajetória">trajetória</span></h2>
+<ol class="tl">
+<li><time>Desde 2025</time><div><b>Experiência em suporte e sustentação de TI</b>Atuação com sistemas ERP e PDV, troubleshooting de incidentes em produção, integrações, atendimento técnico e documentação.</div></li>
+<li><time>11/2026</time><div><b>Estudo de caso de malware</b>Organização e publicação de uma análise técnica de incidente, com documentação bilíngue, inventário de evidências e registro das limitações da investigação.</div></li>
+<li><time>Atualmente</time><div><b>Defesa Cibernética | Faculdade Impacta</b>Formação em andamento, com conclusão prevista para dezembro de 2028. Estudos direcionados a redes, segurança da informação e resposta a incidentes.</div></li>
+</ol>
+</section>
+
+<section id="contato">
+<h2><span class="glitch" data-text="contato">contato</span></h2>
+<p>Estou aberto a conversar sobre oportunidades de estágio e posições de nível inicial em Segurança da Informação, SOC, NOC e infraestrutura, além de projetos e colaboração técnica.</p>
+<ul class="links">
+<li><span>e-mail</span><a href="mailto:aryhalves2005@gmail.com">aryhalves2005@gmail.com</a></li>
+<li><span>linkedin</span><a href="https://linkedin.com/in/alissonalvesdelima" target="_blank" rel="noopener">linkedin.com/in/alissonalvesdelima</a></li>
+<li><span>github</span><a href="https://github.com/alissonalvesdelima" target="_blank" rel="noopener">github.com/alissonalvesdelima</a></li>
+</ul>
+</section>
+</main>
+<footer>$ exit<br>session terminated.<br><br>© 2026 Alisson Alves de Lima // CYBERGRID</footer>
+<script>
+(()=>{
+const rm=matchMedia("(prefers-reduced-motion: reduce)").matches,
+gl=[...document.querySelectorAll(".glitch")],hero=gl[0],
+wait=ms=>new Promise(r=>setTimeout(r,ms)),
+burst=el=>{el.classList.add("on");setTimeout(()=>el.classList.remove("on"),550)};
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{
+const t=document.querySelector(a.getAttribute("href"));
+if(t){e.preventDefault();t.scrollIntoView({behavior:rm?"auto":"smooth"})}}));
+if(rm)return;
+const rows=[...document.querySelectorAll(".boot div")],txt=rows.map(r=>r.textContent);
+rows.forEach(r=>r.textContent="");
+(async()=>{
+for(let i=0;i<rows.length;i++){for(const c of txt[i]){rows[i].textContent+=c;await wait(12)}await wait(i%2?160:60)}
+burst(hero);setInterval(()=>burst(hero),6500);
+})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){burst(e.target);io.unobserve(e.target)}}),{threshold:1});
+gl.slice(1).forEach(g=>io.observe(g));
+})();
+</script>
+</body>
+</html>
